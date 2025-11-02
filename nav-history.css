@@ -1,0 +1,609 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Place this after your @import line, before any other CSS */
+body, input, button, select, textarea, label, nav, .desktop-navbar, .hamburger-menu, .account-main, .account-form, .account-photo-col, .submit-row, .header-center, .account-form-row, .account-form label, .account-form input, .account-form select, .account-form textarea {
+    font-family: 'Inter', Arial, Helvetica, sans-serif !important;
+}
+
+/* remove scrollbar */
+/* Firefox */
+html, body {
+    margin: 0;
+    padding-top: 60px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* remove scrollbar */
+/* chronium */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* Navbar styles */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-sizing: border-box;
+    height: 60px;
+    line-height: 60px;
+    overflow: visible;
+    border-radius: 40px;
+}
+
+/* Nav container for centering and positioning */
+.nav-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Center navigation links */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 70px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove underline from navigation links */
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Logo */
+.logo-container {
+    position: absolute;
+    left: 30px;
+    top: 5%;
+}
+
+.nu-logo {
+    width: 150px;
+    height: auto;
+}
+
+/* User dropdown on the right */
+.user-dropdown-wrapper {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#user-dropdown {
+    color: black;
+    cursor: pointer;
+    padding: 8px 18px;
+    border-radius: 6px;
+    position: relative;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+#user-dropdown:hover {
+    color: #FFD41C;
+}
+
+#logout-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    min-width: 100px;
+    z-index: 1000;
+}
+
+#logout-menu button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#logout-menu button:hover {
+    color: red;
+}
+
+body {
+    margin: 0;
+    padding-top: 60px;
+    background: linear-gradient(180deg,rgba(19, 26, 83, 1) 40%, rgba(42, 58, 185, 1) 85%);
+    min-height: 100vh;
+}
+
+/* Header styles */
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: -48px;
+    margin-bottom: -16px;
+    font-size: 2rem; /* Change this value as needed */
+}
+
+/* Rad button */
+.chooser-table {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+/* Cardview */
+.history-cardview-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    gap: 32px;
+}
+
+.cancel-btn {
+    background-color: #dc052d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.history-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 32px 40px;
+    min-width: 340px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+}
+
+.history-status {
+    color: #0078d7;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.history-title {
+    font-size: 22px;
+    margin: 0 0 12px 0;
+    color: #222;
+}
+
+.history-date {
+    color: #666;
+    font-size: 15px;
+    margin: 0;
+}
+
+.history-time {
+    color: #444;
+    font-size: 15px;
+    margin: 8px 0 0 0;
+}
+
+/* Status-specific colors for history cards */
+/* Ongoing */
+.history-status.ongoing {
+    color: #0078d7 !important;
+}
+
+/* Completed */
+.history-status.completed {
+    color: #28a745 !important;
+}
+
+/* Cancelled */
+.history-status.cancelled {
+    color: #dc052d !important;
+}
+
+/* Responsive styles for cardview */
+@media (max-width: 700px) {
+    .history-cardview-wrapper {
+        gap: 18px;
+        margin-top: 20px;
+    }
+    .history-card {
+        min-width: 0;
+        max-width: 88vw;
+        width: 100%;
+        padding: 18px 8vw;
+        box-sizing: border-box;
+    }
+    .history-title {
+        font-size: 1.1rem;
+    }
+    .history-status,
+    .history-date,
+    .history-time {
+        font-size: 0.98rem;
+    }
+}
+
+#history-cardview-wrapper.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 300px; /* Adjust as needed */
+}
+
+.history-card.no-data {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;  
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+
+/* Cardview wrapper: 2 cards per row in desktop/tablet, 1 card per row on mobile */
+.history-cardview-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+@media (max-width: 700px) {
+    .history-cardview-wrapper {
+        grid-template-columns: 1fr; 
+        gap: 18px;
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .history-card {
+        max-width: 400px;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+.history-cardview-wrapper {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* transitions */
+@view-transition {
+    navigation: auto;
+}
+
+nav a {
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Reusable responsive bar */
+/* --- Desktop Navbar Styles --- */
+.desktop-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: fixed;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+.desktop-navbar ul {
+    display: flex;
+    gap: 70px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-navbar li a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.desktop-navbar li a:hover {
+    color: #FFD41C;
+    transform: scale(1.1);
+    text-decoration: underline;
+}
+
+.desktop-navbar li a.active {
+    color: #FFD41C;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+.desktop-navbar .user-dropdown-wrapper {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* --- Hamburger Menu Only --- */
+.hamburger-menu #menu__toggle {
+    opacity: 0;
+    position: absolute;
+}
+
+.hamburger-menu #menu__toggle:checked + .menu__btn > span {
+    transform: rotate(45deg);
+}
+.hamburger-menu #menu__toggle:checked + .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+.hamburger-menu #menu__toggle:checked + .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+.hamburger-menu #menu__toggle:checked ~ .menu__box {
+    left: 0 !important;
+}
+
+.hamburger-menu .menu__btn {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger-menu .menu__btn > span,
+.hamburger-menu .menu__btn > span::before,
+.hamburger-menu .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #FFD41C;
+    transition-duration: .25s;
+}
+
+.hamburger-menu .menu__btn > span::before {
+    content: '';
+    top: -8px;
+}
+.hamburger-menu .menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+.hamburger-menu .menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: white;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
+    z-index: 1099;
+}
+
+.hamburger-menu .menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+}
+
+.hamburger-menu .menu__item:hover {
+    background-color: #FFD41C;
+}
+
+/* --- Responsive Visibility --- */
+/* usable in other CSS */
+@media (min-width: 900px) {
+.desktop-navbar {
+    display: flex !important;
+}
+
+    .hamburger-menu {
+        display: none !important;
+    }
+}
+
+@media (max-width: 899px) {
+    .desktop-navbar {
+        display: none !important;
+    }
+    .hamburger-menu {
+        display: block !important;
+    }
+    .header-center {
+        font-size: 1.5rem;
+        margin-top: -56px;
+        margin-bottom: auto;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
+/* End reusable responsive visibility */
+
+/* Hide the actual radio buttons */
+.radio-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.radio-toolbar input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.radio-toolbar label {
+  display: inline-block;
+  background-color: white;
+  padding: 10px 24px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  border: 2px solid #444;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin-right: 16px;
+  color: #222;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) and (min-width: 601px) {
+  .radio-toolbar label {
+    flex: 1 1 45%;
+    min-width: 120px;
+    font-size: 15px;
+    margin-right: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .radio-toolbar label {
+    display: block;
+    margin-bottom: 12px;
+    margin-right: 0;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Checked styles you already have... */
+.radio-toolbar input[type="radio"]#ongoing:checked + label {
+  background-color: #cce0ff;
+  border-color: #3390ff;
+  color: #003366;
+}
+
+.radio-toolbar input[type="radio"]#completed:checked + label {
+  background-color: #bfffc6;
+  border-color: #3cc96b;
+  color: #064906;
+}
+
+.radio-toolbar input[type="radio"]#cancelled:checked + label {
+  background-color: #ffc8c8;
+  border-color: #ff4d4d;
+  color: #990000;
+}
+
+/* Header Styles */
+.history-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+    color: white;
+}
+
+.history-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.history-header .subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    color: #FFD41C;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .history-header h1 {
+        font-size: 2rem;
+    }
+    
+    .history-cardview-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 30px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .history-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .history-header .subtitle {
+        font-size: 1rem;
+    }
+    
+    .radio-toolbar label {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+    
+    .history-card {
+        padding: 20px;
+    }
+}
+
+
+@view-transition {
+    navigation: auto;
+}
